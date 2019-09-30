@@ -1,5 +1,3 @@
-# Endless Evil
-
 ## Introduction
 
 ## Intended Users
