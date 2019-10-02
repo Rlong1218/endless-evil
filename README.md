@@ -4,7 +4,9 @@
 
 Gamers who want a timing based mobile game.
 
-[User stories](docs/user-stories.md)
+[User stories](docs/user-stories.md)  
+
+[Entity Relationship Diagram](docs/erd.md)
 
 ## Overview
 
