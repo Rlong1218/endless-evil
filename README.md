@@ -1,5 +1,5 @@
 ## Introduction
-Welcome to the world of Endless Evil, An endless wave of evil beasts are 
+Welcome to the world of Jacquel, where an endless wave of evil beasts are 
 trying to terrorize a peaceful village, and you are the only one with the
 power to hold them back. Use your timing skills to execute powerful attacks
 and evade ones thrown by the enemy. How long can you keep the monsters at
