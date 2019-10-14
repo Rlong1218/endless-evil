@@ -3,9 +3,9 @@ package com.rlong1218.endlessevil.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.PrimaryKey;
 
-public class Character {
+public class Game {
 
   @PrimaryKey(autoGenerate = true)
-  @ColumnInfo(name = "character_id")
+  @ColumnInfo(name = "game_id")
   private long id;
 }
