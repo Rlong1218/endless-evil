@@ -36,4 +36,44 @@ public class Game {
   @ColumnInfo(name = "levels_beaten")
   private int levelsBeaten;
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  @NonNull
+  public Date getCreated() {
+    return created;
+  }
+
+  public void setCreated(@NonNull Date created) {
+    this.created = created;
+  }
+
+  public long getCharacterId() {
+    return characterId;
+  }
+
+  public void setCharacterId(long characterId) {
+    this.characterId = characterId;
+  }
+
+  public int getPointsEarned() {
+    return pointsEarned;
+  }
+
+  public void setPointsEarned(int pointsEarned) {
+    this.pointsEarned = pointsEarned;
+  }
+
+  public int getLevelsBeaten() {
+    return levelsBeaten;
+  }
+
+  public void setLevelsBeaten(int levelsBeaten) {
+    this.levelsBeaten = levelsBeaten;
+  }
 }
