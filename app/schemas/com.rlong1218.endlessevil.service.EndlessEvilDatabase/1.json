@@ -6,7 +6,7 @@
     "entities": [
       {
         "tableName": "Character",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`character_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `health_upgrades` INTEGER NOT NULL, `damage_upgrades` INTEGER NOT NULL, `total_kills` INTEGER NOT NULL, `high_score` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `Character` (`character_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `health_upgrades` INTEGER NOT NULL, `damage_upgrades` INTEGER NOT NULL, `total_kills` INTEGER NOT NULL, `high_score` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
