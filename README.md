@@ -30,4 +30,4 @@ capabilities and an opportunity to compete with people around the world.
 
 ### [Wireframe Diagram](docs/wireframe.md)
 
-### [Data Model Implementation](docs/)
+### [Data Model Implementation](docs/data-model-implementation.md)
