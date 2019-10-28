@@ -7,3 +7,5 @@
 ### [Game Dao](game-dao.md)
 
 ### [Database](database.md)
+
+### [DDL](ddl.md)

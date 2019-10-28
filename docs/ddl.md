@@ -1,5 +1,4 @@
-## Data Definition Language (DDL) for data model 
-
+## [Data Definition Language (DDL) for data model](ddl.sql) 
 ```sql
 CREATE TABLE IF NOT EXISTS `Character`
 (
