@@ -3,25 +3,21 @@
   package="com.rlong1218.endlessevil">
 
   <application
-    android:name=".EndlessEvilApplication"
     android:allowBackup="false"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
+    android:name=".EndlessEvilApplication"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-
-    <activity
-      android:label="@string/title_activity_main"
-      android:name=".controller.MainActivity"
-      android:theme="@style/AppTheme.NoActionBar">
+    <activity android:name=".controller.MainActivity"
+      android:screenOrientation="landscape">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-
   </application>
 
 </manifest>

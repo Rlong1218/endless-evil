@@ -24,10 +24,11 @@ The scores from each level will be added together to give a total score.
 Mobile gamers who are looking for a fast paced battle game with offline
 capabilities and an opportunity to compete with people around the world.
 
-#### [User stories](docs/user-stories.md)  
+### [User stories](docs/user-stories.md)  
 
-#### [Entity Relationship Diagram](docs/erd.md)  
+### [Entity Relationship Diagram](docs/erd.md)  
 
-#### [Wireframe Diagram](docs/wireframe.md)
+### [Wireframe Diagram](docs/wireframe.md)
 
+### [Data Model Implementation](entity/Game)
 
