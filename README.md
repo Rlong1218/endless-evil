@@ -30,5 +30,4 @@ capabilities and an opportunity to compete with people around the world.
 
 ### [Wireframe Diagram](docs/wireframe.md)
 
-### [Data Model Implementation](entity/Game)
-
+### [Data Model Implementation](docs/)

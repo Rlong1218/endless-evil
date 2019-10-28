@@ -1,3 +1,6 @@
+### Character Dao
+
+```java
 package com.rlong1218.endlessevil.model;
 
 import androidx.lifecycle.LiveData;
@@ -26,3 +29,5 @@ public interface CharacterDao {
   @Query("SELECT * FROM Character WHERE character_id = :characterId")
   LiveData<Character> getById(long characterId);
 }
+
+```
