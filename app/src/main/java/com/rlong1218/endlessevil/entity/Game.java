@@ -36,6 +36,9 @@ public class Game {
   @ColumnInfo(name = "levels_beaten")
   private int levelsBeaten;
 
+  @ColumnInfo(name = "weather_background")
+  private int weather;
+
   public long getId() {
     return id;
   }
@@ -75,5 +78,13 @@ public class Game {
 
   public void setLevelsBeaten(int levelsBeaten) {
     this.levelsBeaten = levelsBeaten;
+  }
+
+  public int getWeather() {
+    return weather;
+  }
+
+  public void setWeather(int weather) {
+    this.weather = weather;
   }
 }

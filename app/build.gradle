@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+def getServiceProperty(String property) {
+    Properties properties =new Properties();
+    properties.load(new FileInputStream("../credentials/open_weather.properties"));
+    return String.format("\"%s\"", properties.getProperty(property));
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
@@ -10,8 +16,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL", '"https://deckofcardsapi.com/"'
-        buildConfigField "String", "STATIC_IMAGE_PATTERN", '"%1$sstatic/img/%2$s.png"'
+        buildConfigField "String", "BASE_URL", '"https://api.openweathermap.org/"'
+        buildConfigField "String", "APP_ID", getServiceProperty("appid")
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
