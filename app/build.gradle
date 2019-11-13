@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 
 def getServiceProperty(String property) {
-    Properties properties =new Properties();
+    Properties properties = new Properties();
     properties.load(new FileInputStream("../credentials/open_weather.properties"));
     return String.format("\"%s\"", properties.getProperty(property));
 }
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "com.rlong1218.endlessevil"
         minSdkVersion 21
@@ -47,12 +46,12 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    def room_version = "2.2.0"
+    def room_version = "2.2.1"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
 
 
@@ -69,6 +68,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:3.14.2"
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
+
+    implementation 'org.apache.commons:commons-csv:1.7'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

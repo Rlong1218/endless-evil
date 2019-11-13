@@ -17,6 +17,18 @@ public class Character {
   @NonNull
   private Date created = new Date();
 
+  @ColumnInfo(index = true)
+  @NonNull
+  private String name;
+
+  private int image;
+
+  @ColumnInfo(name = "baseline_health")
+  private int baselineHealth;
+
+  @ColumnInfo(name = "baseline_damage")
+  private int baselineDamage;
+
   @ColumnInfo(name = "health_upgrades")
   private int healthUpgrades;
 
@@ -44,6 +56,39 @@ public class Character {
 
   public void setCreated(@NonNull Date created) {
     this.created = created;
+  }
+
+  @NonNull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@NonNull String name) {
+    this.name = name;
+  }
+
+  public int getImage() {
+    return image;
+  }
+
+  public void setImage(int image) {
+    this.image = image;
+  }
+
+  public int getBaselineHealth() {
+    return baselineHealth;
+  }
+
+  public void setBaselineHealth(int baselineHealth) {
+    this.baselineHealth = baselineHealth;
+  }
+
+  public int getBaselineDamage() {
+    return baselineDamage;
+  }
+
+  public void setBaselineDamage(int baselineDamage) {
+    this.baselineDamage = baselineDamage;
   }
 
   public int getHealthUpgrades() {

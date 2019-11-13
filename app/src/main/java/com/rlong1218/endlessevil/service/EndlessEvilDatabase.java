@@ -1,16 +1,28 @@
 package com.rlong1218.endlessevil.service;
 
 import android.app.Application;
+import android.content.res.Resources;
+import android.renderscript.ScriptGroup.Input;
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.rlong1218.endlessevil.entity.Character;
 import com.rlong1218.endlessevil.entity.Game;
 import com.rlong1218.endlessevil.model.CharacterDao;
 import com.rlong1218.endlessevil.model.GameDao;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 @Database(
     entities = {Character.class, Game.class},
@@ -19,11 +31,12 @@ import java.util.Date;
 @TypeConverters(EndlessEvilDatabase.Converters.class)
 public abstract class EndlessEvilDatabase extends RoomDatabase {
 
-  protected EndlessEvilDatabase() {}
+  protected EndlessEvilDatabase() {
+  }
 
   private static Application applicationContext;
 
-  public static void setApplicationContext(Application applicationContext){
+  public static void setApplicationContext(Application applicationContext) {
     EndlessEvilDatabase.applicationContext = applicationContext;
   }
 
@@ -42,7 +55,9 @@ public abstract class EndlessEvilDatabase extends RoomDatabase {
     static {
       INSTANCE =
           Room.databaseBuilder
-              (applicationContext, EndlessEvilDatabase.class, "endless_evil_db").build();
+              (applicationContext, EndlessEvilDatabase.class, "endless_evil_db")
+              .addCallback(new PrePopulation())
+              .build();
     }
 
   }
@@ -50,7 +65,9 @@ public abstract class EndlessEvilDatabase extends RoomDatabase {
   public static class Converters {
 
     @TypeConverter
-    public Long dateToLong(Date date) {return (date != null) ? date.getTime() : null;}
+    public Long dateToLong(Date date) {
+      return (date != null) ? date.getTime() : null;
+    }
 
     @TypeConverter
     public Date longToDate(Long milliseconds) {
@@ -59,4 +76,37 @@ public abstract class EndlessEvilDatabase extends RoomDatabase {
 
   }
 
+  private static class PrePopulation extends Callback {
+
+    @Override
+    public void onCreate(@NonNull SupportSQLiteDatabase db) {
+      super.onCreate(db);
+      new Thread(() -> {
+        Resources res = applicationContext.getResources();
+        int id = res.getIdentifier("roster", "raw", applicationContext.getPackageName());
+        try (
+            InputStream input = res.openRawResource(id);
+            CSVParser parser = CSVParser.parse(input, Charset.defaultCharset(),
+                CSVFormat.DEFAULT
+                    .withFirstRecordAsHeader()
+                    .withIgnoreHeaderCase()
+                    .withIgnoreSurroundingSpaces());
+        ) {
+          List<Character> characters = new LinkedList<>();
+          for (CSVRecord record : parser) {
+            Character character = new Character();
+            character.setName(record.get("name"));
+            int drawableId = res.getIdentifier(record.get("image"), "drawable", applicationContext.getPackageName());
+             character.setImage(drawableId);
+            character.setBaselineHealth(Integer.parseInt(record.get("baseline_health")));
+            character.setBaselineDamage(Integer.parseInt(record.get("baseline_damage")));
+            characters.add(character);
+          }
+          EndlessEvilDatabase.getInstance().getCharacterDao().insert(characters);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }).start();
+    }
+  }
 }

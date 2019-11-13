@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e87ea9e5fc7f311f56012da715a6fc47",
+    "identityHash": "30c80154c02e7471248e36dcb47348aa",
     "entities": [
       {
         "tableName": "Character",
-        "createSql": "CREATE TABLE IF NOT EXISTS `Character` (`character_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `health_upgrades` INTEGER NOT NULL, `damage_upgrades` INTEGER NOT NULL, `total_kills` INTEGER NOT NULL, `high_score` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`character_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT NOT NULL, `image` INTEGER NOT NULL, `baseline_health` INTEGER NOT NULL, `baseline_damage` INTEGER NOT NULL, `health_upgrades` INTEGER NOT NULL, `damage_upgrades` INTEGER NOT NULL, `total_kills` INTEGER NOT NULL, `high_score` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -17,6 +17,30 @@
           {
             "fieldPath": "created",
             "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "image",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "baselineHealth",
+            "columnName": "baseline_health",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "baselineDamage",
+            "columnName": "baseline_damage",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -59,13 +83,21 @@
               "created"
             ],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_Character_created` ON `${TABLE_NAME}` (`created`)"
+          },
+          {
+            "name": "index_Character_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Character_name` ON `${TABLE_NAME}` (`name`)"
           }
         ],
         "foreignKeys": []
       },
       {
         "tableName": "Game",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`game_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `character_id` INTEGER NOT NULL, `points_earned` INTEGER NOT NULL, `levels_beaten` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `Character`(`character_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`game_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `character_id` INTEGER NOT NULL, `points_earned` INTEGER NOT NULL, `levels_beaten` INTEGER NOT NULL, `weather_background` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `Character`(`character_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -94,6 +126,12 @@
           {
             "fieldPath": "levelsBeaten",
             "columnName": "levels_beaten",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weather",
+            "columnName": "weather_background",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -140,7 +178,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e87ea9e5fc7f311f56012da715a6fc47')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '30c80154c02e7471248e36dcb47348aa')"
     ]
   }
 }

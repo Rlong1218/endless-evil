@@ -1,4 +1,16 @@
 <resources>
   <string name="app_name">Endless Evil</string>
   <string name="title_activity_main_menu">MainMenuActivity</string>
+
+  <string name="city_prompt">Choose Your City</string>
+
+  <string name="login_failure_message">
+    Login Failed
+  </string>
+
+  <string-array name="city_names">
+    <item>Albuquerque</item>
+    <item>New York</item>
+    <item>Los Angeles</item>
+  </string-array>
 </resources>
