@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+    android:id="@+id/archer"
+    android:icon="@drawable/archer_symbol"
+    android:title="@string/archer"/>
+
+  <item
+    android:id="@+id/paladin"
+    android:icon="@drawable/paladin_symbol"
+    android:title="@string/paladin"/>
+
+  <item
+    android:id="@+id/mage"
+    android:icon="@drawable/mage_symbol"
+    android:title="@string/mage"/>
+
+</menu>

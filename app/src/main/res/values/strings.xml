@@ -8,6 +8,13 @@
     Login Failed
   </string>
 
+  <string name="title_activity_character_select">CharacterSelectActivity</string>
+  <string name="title_home">Home</string>
+  <string name="title_dashboard">Dashboard</string>
+  <string name="title_notifications">Notifications</string>
+  <string name="archer">Archer</string>
+  <string name="mage">Mage</string>
+  <string name="paladin">Paladin</string>
   <string-array name="city_names">
     <item>Albuquerque</item>
     <item>New York</item>

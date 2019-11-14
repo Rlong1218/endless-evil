@@ -5,6 +5,68 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".controller.MainActivity">
+  tools:context=".controller.MainActivity"
+  android:background="@drawable/villagething">
+
+
+  <Button
+    android:id="@+id/blacksmith"
+    android:layout_width="175dp"
+    android:layout_height="182dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="@id/guideline"
+    android:layout_marginBottom="35dp"
+    android:visibility="invisible"/>
+
+  <Button
+    android:id="@+id/pub"
+    android:layout_width="193dp"
+    android:layout_height="220dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="@id/guideline"
+    app:layout_constraintRight_toRightOf="@id/guideline2"
+    android:layout_marginBottom="35dp"
+    android:visibility="invisible"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.27"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.55950755"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.8536252"/>
+  <Button
+    android:id="@+id/play_game"
+    android:layout_width="wrap_content"
+    android:layout_height="171dp"
+    app:layout_constraintLeft_toLeftOf="@id/guideline3"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginBottom="35dp"
+    android:visibility="invisible"/>
+  <Button
+    android:id="@+id/market"
+    android:layout_width="188dp"
+    android:layout_height="158dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="@id/guideline2"
+    app:layout_constraintRight_toRightOf="@id/guideline3"
+    android:layout_marginBottom="35dp"
+    android:visibility="invisible"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

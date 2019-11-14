@@ -10,7 +10,12 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".controller.MainActivity">
+    <activity
+      android:label="@string/title_activity_character_select"
+      android:name=".controller.CharacterSelectActivity">
+    </activity>
+    <activity android:name=".controller.MainActivity"
+      android:screenOrientation="landscape">
     </activity>
     <activity
       android:name=".controller.GoogleSignInActivity"
@@ -22,5 +27,7 @@
       </intent-filter>
     </activity>
   </application>
+
+  <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
