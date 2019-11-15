@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "30c80154c02e7471248e36dcb47348aa",
+    "identityHash": "069fd27126abb677053cae356d08cf9d",
     "entities": [
       {
         "tableName": "Character",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`character_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT NOT NULL, `image` INTEGER NOT NULL, `baseline_health` INTEGER NOT NULL, `baseline_damage` INTEGER NOT NULL, `health_upgrades` INTEGER NOT NULL, `damage_upgrades` INTEGER NOT NULL, `total_kills` INTEGER NOT NULL, `high_score` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`character_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT NOT NULL, `icon` INTEGER NOT NULL, `image` INTEGER NOT NULL, `baseline_health` INTEGER NOT NULL, `baseline_damage` INTEGER NOT NULL, `health_upgrades` INTEGER NOT NULL, `damage_upgrades` INTEGER NOT NULL, `total_kills` INTEGER NOT NULL, `high_score` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -24,6 +24,12 @@
             "fieldPath": "name",
             "columnName": "name",
             "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icon",
+            "columnName": "icon",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -178,7 +184,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '30c80154c02e7471248e36dcb47348aa')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '069fd27126abb677053cae356d08cf9d')"
     ]
   }
 }

@@ -5,7 +5,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".controller.UpgradesActivity">
+  tools:context=".controller.UpgradesActivity"
+  android:background="@drawable/smith_temp">
 
   <Button
     android:id="@+id/back"

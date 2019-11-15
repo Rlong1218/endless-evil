@@ -20,7 +20,7 @@ public interface CharacterDao {
   @Insert
   List<Long> insert(Collection<Character> characters);
 
-  @Query("SELECT * FROM Character ORDER BY character_id ASC")
+  @Query("SELECT * FROM Character ORDER BY name ASC")
   LiveData<List<Character>> getAll();
 
   @Query("SELECT * FROM Character WHERE character_id = :characterId")

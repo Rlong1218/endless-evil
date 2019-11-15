@@ -98,6 +98,8 @@ public abstract class EndlessEvilDatabase extends RoomDatabase {
             character.setName(record.get("name"));
             int drawableId = res.getIdentifier(record.get("image"), "drawable", applicationContext.getPackageName());
              character.setImage(drawableId);
+             drawableId = res.getIdentifier(record.get("icon"), "drawable", applicationContext.getPackageName());
+             character.setIcon(drawableId);
             character.setBaselineHealth(Integer.parseInt(record.get("baseline_health")));
             character.setBaselineDamage(Integer.parseInt(record.get("baseline_damage")));
             characters.add(character);

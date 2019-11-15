@@ -21,6 +21,8 @@ public class Character {
   @NonNull
   private String name;
 
+  private int icon;
+
   private int image;
 
   @ColumnInfo(name = "baseline_health")
@@ -89,6 +91,14 @@ public class Character {
 
   public void setBaselineDamage(int baselineDamage) {
     this.baselineDamage = baselineDamage;
+  }
+
+  public int getIcon() {
+    return icon;
+  }
+
+  public void setIcon(int icon) {
+    this.icon = icon;
   }
 
   public int getHealthUpgrades() {
