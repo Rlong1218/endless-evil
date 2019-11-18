@@ -1,10 +1,10 @@
-package com.rlong1218.endlessevil.model;
+package com.rlong1218.endlessevil.model.Dao;
 
 import androidx.lifecycle.LiveData;
     import androidx.room.Dao;
     import androidx.room.Insert;
     import androidx.room.Query;
-    import com.rlong1218.endlessevil.entity.Character;
+    import com.rlong1218.endlessevil.model.entity.Character;
     import java.util.Collection;
     import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.rlong1218.endlessevil.entity;
+package com.rlong1218.endlessevil.model.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

@@ -2,6 +2,7 @@ package com.rlong1218.endlessevil.controller;
 
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.rlong1218.endlessevil.R;
@@ -14,16 +15,20 @@ public class MainActivity extends AppCompatActivity {
     getSupportActionBar().hide();
     setContentView(R.layout.activity_main);
 
-    Button tavern = (Button) findViewById(R.id.tavern);
+    Button tavern = findViewById(R.id.tavern);
     tavern.setOnClickListener(
         v -> startActivity(new Intent(MainActivity.this, CharacterSelectActivity.class)));
 
-    Button blacksmith = (Button) findViewById(R.id.blacksmith);
+    Button blacksmith = findViewById(R.id.blacksmith);
     blacksmith.setOnClickListener(
         v -> startActivity(new Intent(MainActivity.this, UpgradesActivity.class)));
 
-    Button market = (Button) findViewById(R.id.market);
-    Button playGame = (Button) findViewById(R.id.play_game);
+    Button market = findViewById(R.id.market);
+
+    Button playGame = findViewById(R.id.play_game);
+    playGame.setOnClickListener(
+        v -> startActivity(new Intent(MainActivity.this, BattleActivity.class)));
+
   }
 
 }

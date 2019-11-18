@@ -4,7 +4,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import com.rlong1218.endlessevil.entity.Character;
+import com.rlong1218.endlessevil.model.entity.Character;
 import com.rlong1218.endlessevil.service.EndlessEvilDatabase;
 import java.util.List;
 

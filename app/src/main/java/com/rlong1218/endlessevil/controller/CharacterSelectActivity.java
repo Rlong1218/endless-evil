@@ -13,16 +13,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener;
 import com.rlong1218.endlessevil.R;
-import com.rlong1218.endlessevil.entity.Character;
+import com.rlong1218.endlessevil.model.entity.Character;
 import com.rlong1218.endlessevil.viewmodel.CharacterSelectViewModel;
 
 public class CharacterSelectActivity extends AppCompatActivity implements
     OnNavigationItemSelectedListener {
 
   private CharacterSelectViewModel viewModel;
-
   private TextView mTextMessage;
-
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +30,7 @@ public class CharacterSelectActivity extends AppCompatActivity implements
 
     mTextMessage = (TextView) findViewById(R.id.message);
     BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+    // TODO set no button selected
     navigation.setOnNavigationItemSelectedListener(this);
 
     Button back = (Button) findViewById(R.id.back);
@@ -54,10 +53,10 @@ public class CharacterSelectActivity extends AppCompatActivity implements
    });
   }
 
-
   @Override
   public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-    // TODO Respond to character selection
+    CharacterInfoFragment fragment = CharacterInfoFragment.newInstance(menuItem.getItemId());
+    fragment.show(getSupportFragmentManager(), fragment.getClass().getSimpleName());
     return false;
   }
 }

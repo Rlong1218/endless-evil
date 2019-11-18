@@ -8,7 +8,6 @@
   tools:context=".controller.MainActivity"
   android:background="@drawable/villagething">
 
-
   <Button
     android:background="#00FF"
     android:id="@+id/blacksmith"
@@ -61,13 +60,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.55950755"/>
+    app:layout_constraintGuide_percent="0.56"/>
 
   <androidx.constraintlayout.widget.Guideline
     android:id="@+id/guideline3"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.8536252"/>
+    app:layout_constraintGuide_percent="0.854"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

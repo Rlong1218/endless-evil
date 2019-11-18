@@ -1,4 +1,4 @@
-package com.rlong1218.endlessevil.pojo;
+package com.rlong1218.endlessevil.model.pojo;
 
 public class CharacterStats {
 
