@@ -1,3 +1,5 @@
+# Endless Evil
+
 ## Introduction
 Welcome to the world of Jacquel, where an endless wave of evil beasts are 
 trying to terrorize a peaceful village, and you are the only one with the
@@ -19,15 +21,48 @@ based on how little damage they took while fighting it. The game will end when
 the character's health is reduced to 0, rendering them unable to continue fighting.
 The scores from each level will be added together to give a total score. 
 
-## Intended Users
+## Current State
+Currently the user is able to select one character and navigate into 3 separate activities,
+including the character select screen, the upgrades screen, and the battle screen. in the battle
+screen the user can interact with the battle bar to stop it and find the value it was stopped at.
 
+### Unimplemented Elements of Endless Evil
++ Need to add more characters
++ Need to display characters and enemies in battle screen
++ Need to implement upgrades.
+
+### Known Issues and Bugs
+No known issues or bugs that crash the app.
+
+## Intended Users
 Mobile gamers who are looking for a fast paced battle game with offline
 capabilities and an opportunity to compete with people around the world.
 
-### [User stories](docs/user-stories.md)  
+## Android API Version and Hardware
++ Run on Pixel 2 emulator at API 28
++ Android API 21 or higher
 
-### [Entity Relationship Diagram](docs/erd.md)  
+## Third Party Libraries
++ Retrofit
++ Stetho
++ Room
++ AndroidX
 
-### [Wireframe Diagram](docs/wireframe.md)
+## External Services
+This application accesses the OpenWeather API
 
-### [Data Model Implementation](docs/data-model-implementation.md)
+## Future goals of Endless Evil
+
+### Technical Documentation
+[User stories](docs/user-stories.md)  
+[Entity Relationship Diagram](docs/erd.md)  
+[Wireframe Diagram](docs/wireframe.md)
+[Data Model Implementation](docs/data-model-implementation.md)
+[Java Doc](file:///C:/Users/7dbro/Desktop/bootcamp/projects/endless-evil/docs/api/index.html)
+
+
+## Build and Deployment Instructions
+
+## Licences and Copyright
+
+

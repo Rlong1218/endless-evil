@@ -50,7 +50,6 @@ public class CharacterInfoFragment extends DialogFragment {
     view = getActivity().getLayoutInflater().inflate(R.layout.fragment_character_info, null);
     // TODO get references to view objects in layout
     characterSprite = view.findViewById(R.id.sprite);
-
     return new AlertDialog.Builder(getContext())
         .setTitle("Character Details")
         .setView(view)

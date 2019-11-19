@@ -2,7 +2,9 @@ package com.rlong1218.endlessevil.controller;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,8 @@ public class BattleActivity extends AppCompatActivity {
   private float percentage;
   private ProgressBar timingBar;
   private boolean increasing = true;
+  private Timer timer;
+  private boolean running;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -27,33 +31,58 @@ public class BattleActivity extends AppCompatActivity {
     setContentView(R.layout.activity_battle);
     timingBar = findViewById(R.id.timing_bar);
     maxLevel = timingBar.getMax();
+    timingBar.setVisibility(View.GONE);
+
+    ImageButton pause = findViewById(R.id.pause);
+    pause.setOnClickListener(
+        v -> startActivity(new Intent(BattleActivity.this, MainActivity.class)));
+    pause.setVisibility(View.GONE);
 
     Button back = findViewById(R.id.back);
     back.setOnClickListener(
         v -> startActivity(new Intent(BattleActivity.this, MainActivity.class)));
 
-    Timer timer = new Timer();
-    timer.schedule(new BattleBarTask(), 1000, 10);
+    Button start = findViewById(R.id.start);
+    start.setOnClickListener( v -> {
+      pause.setVisibility(View.VISIBLE);
+      back.setVisibility(View.GONE);
+      timingBar.setVisibility(View.VISIBLE);
+      start.setVisibility(View.GONE);
+      initializeTimer();
 
-    Button lockBar = findViewById(R.id.lock_bar);
-    lockBar.setOnClickListener(view -> {
-      String percentageClicked = String.valueOf(percentage);
-      Toast.makeText(this, percentageClicked, Toast.LENGTH_SHORT).show();
+      Button lockBar = findViewById(R.id.lock_bar);
+      lockBar.setOnClickListener(view -> {
+        if (running) {
+          String percentageClicked = String.valueOf(percentage);
+          timer.cancel();
+          Toast.makeText(this, percentageClicked, Toast.LENGTH_SHORT).show();
+          running = false;
+        } else {
+          initializeTimer();
+        }
+      });
     });
+  }
+
+  private void initializeTimer() {
+    timer = new Timer();
+    timer.schedule(new BattleBarTask(), 0, 1);
+    running = true;
   }
 
   private class BattleBarTask extends TimerTask {
 
     @Override
     public void run() {
+      float incrementAmount = .1f;
       if(increasing){
-        percentage += 1;
+        percentage += incrementAmount;
         if (percentage >= maxLevel) {
           percentage = maxLevel;
           increasing = false;
         }
       } else {
-        percentage -= 1;
+        percentage -= incrementAmount;
         if (percentage <= 0) {
           percentage = 0;
           increasing = true;
