@@ -1,26 +1,23 @@
 package com.rlong1218.endlessevil.model.pojo;
 
 public class EnemyStats {
-  int baseHealth = 50;
-  int level;
-  int baseDamage = 30;
-  int monsterHealth;
-  int monsterDamage;
-  int[] stats = new int[] {monsterHealth, monsterDamage};
 
   public int[] healthCalculation(int level) {
+    int monsterHealth = 0;
+    int monsterDamage = 0;
+
     if (level <= 10) {
-      monsterHealth = (baseHealth + (10 * level));
-      monsterDamage = (int) (baseDamage + (10 * Math.floor(level / 5)));
+      monsterHealth = (50 + (10 * level));
+      monsterDamage = (int) (30 + (10 * Math.floor(level / 5)));
     }
     if (level <= 20) {
-      monsterHealth = (baseHealth + (20 * level));
-      monsterDamage = (int) (baseDamage + (15 * Math.floor(level / 5)));
+      monsterHealth = (50 + (20 * level));
+      monsterDamage = (int) (30 + (15 * Math.floor(level / 5)));
     }
     if (level > 30) {
-      monsterHealth = (baseHealth + (30 * level));
-      monsterDamage = (int) (baseDamage + (20 * Math.floor(level / 5)));
+      monsterHealth = (50 + (30 * level));
+      monsterDamage = (int) (30 + (20 * Math.floor(level / 5)));
     }
-    return stats;
+    return new int[] {monsterHealth, monsterDamage};
   }
 }
