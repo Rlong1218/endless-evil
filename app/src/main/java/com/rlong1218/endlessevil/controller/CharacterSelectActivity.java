@@ -1,6 +1,7 @@
 package com.rlong1218.endlessevil.controller;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -42,12 +43,15 @@ public class CharacterSelectActivity extends AppCompatActivity implements
    viewModel = ViewModelProviders.of(this).get(CharacterSelectViewModel.class);
    // Dynamically add characters to bottom navigation
    viewModel.getCharacters().observe(this, (characters) -> {
+     Resources res = getResources();
+     String pkg = getPackageName();
      Menu menu = navigation.getMenu();
      int order = 0;
      for (Character character : characters) {
        MenuItem item = menu.add(0,(int) character.getId(), order++, character.getName());
-       if (character.getIcon() != 0) {
-         item.setIcon(character.getIcon());
+       if (character.getIcon() != null && !character.getIcon().isEmpty()) {
+         int id = res.getIdentifier(character.getIcon(), "drawable", pkg);
+         item.setIcon(id);
        }
      }
    });

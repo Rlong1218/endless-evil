@@ -94,10 +94,8 @@ public abstract class EndlessEvilDatabase extends RoomDatabase {
           for (CSVRecord record : parser) {
             Character character = new Character();
             character.setName(record.get("name"));
-            int drawableId = res.getIdentifier(record.get("image"), "drawable", applicationContext.getPackageName());
-             character.setImage(drawableId);
-             drawableId = res.getIdentifier(record.get("icon"), "drawable", applicationContext.getPackageName());
-             character.setIcon(drawableId);
+             character.setImage(record.get("image"));
+             character.setIcon(record.get("icon"));
             character.setBaselineHealth(Integer.parseInt(record.get("baseline_health")));
             character.setBaselineDamage(Integer.parseInt(record.get("baseline_damage")));
             characters.add(character);

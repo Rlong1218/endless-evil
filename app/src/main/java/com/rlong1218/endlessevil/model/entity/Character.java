@@ -21,9 +21,9 @@ public class Character {
   @NonNull
   private String name;
 
-  private int icon;
+  private String icon;
 
-  private int image;
+  private String image;
 
   @ColumnInfo(name = "baseline_health")
   private int baselineHealth;
@@ -69,11 +69,11 @@ public class Character {
     this.name = name;
   }
 
-  public int getImage() {
+  public String getImage() {
     return image;
   }
 
-  public void setImage(int image) {
+  public void setImage(String image) {
     this.image = image;
   }
 
@@ -93,11 +93,11 @@ public class Character {
     this.baselineDamage = baselineDamage;
   }
 
-  public int getIcon() {
+  public String getIcon() {
     return icon;
   }
 
-  public void setIcon(int icon) {
+  public void setIcon(String icon) {
     this.icon = icon;
   }
 

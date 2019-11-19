@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     blacksmith.setOnClickListener(
         v -> startActivity(new Intent(MainActivity.this, UpgradesActivity.class)));
 
-    Button market = findViewById(R.id.market);
-
     Button playGame = findViewById(R.id.play_game);
     playGame.setOnClickListener(
         v -> startActivity(new Intent(MainActivity.this, BattleActivity.class)));

@@ -1,6 +1,7 @@
 package com.rlong1218.endlessevil.controller;
 
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,6 +49,8 @@ public class CharacterInfoFragment extends DialogFragment {
   public AlertDialog onCreateDialog(@Nullable Bundle savedInstanceState) {
     view = getActivity().getLayoutInflater().inflate(R.layout.fragment_character_info, null);
     // TODO get references to view objects in layout
+    characterSprite = view.findViewById(R.id.sprite);
+
     return new AlertDialog.Builder(getContext())
         .setTitle("Character Details")
         .setView(view)
@@ -62,7 +65,6 @@ public class CharacterInfoFragment extends DialogFragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    // Inflate the layout for this fragment
     return view;
 
   }
@@ -74,6 +76,13 @@ public class CharacterInfoFragment extends DialogFragment {
     viewModel.setId(getArguments().getLong(ID_KEY));
     viewModel.getCharacter().observe(this, (character) -> {
       //TODO populate fields with character info
+      String image = character.getImage();
+      if (image != null && !image.isEmpty()) {
+        Resources res = getResources();
+        String pkg = getActivity().getPackageName();
+        int id = res.getIdentifier(image, "drawable", pkg);
+        characterSprite.setImageResource(id);
+      }
     });
   }
 }

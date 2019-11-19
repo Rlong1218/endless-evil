@@ -1,4 +1,4 @@
 name,image,baseline_health,baseline_damage,icon
-Lilith, , 100, 50, archer_symbol
-Lance, , 200, 30, paladin_symbol
+Lilith, lilith_sprite, 100, 50, archer_symbol
+Lance, lance_temp, 200, 30, paladin_symbol
 Zyrela, , 75, 75, mage_symbol
