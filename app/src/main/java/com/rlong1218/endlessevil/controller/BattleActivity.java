@@ -33,9 +33,10 @@ public class BattleActivity extends AppCompatActivity {
     maxLevel = timingBar.getMax();
     timingBar.setVisibility(View.GONE);
 
+
     ImageButton pause = findViewById(R.id.pause);
-    pause.setOnClickListener(
-        v -> startActivity(new Intent(BattleActivity.this, MainActivity.class)));
+    pause.setOnClickListener(v ->
+        startActivity(new Intent(this, MainActivity.class)));
     pause.setVisibility(View.GONE);
 
     Button back = findViewById(R.id.back);
@@ -45,15 +46,17 @@ public class BattleActivity extends AppCompatActivity {
     Button start = findViewById(R.id.start);
     start.setOnClickListener( v -> {
       pause.setVisibility(View.VISIBLE);
+      pause.bringToFront();
       back.setVisibility(View.GONE);
       timingBar.setVisibility(View.VISIBLE);
       start.setVisibility(View.GONE);
       initializeTimer();
 
-      Button lockBar = findViewById(R.id.lock_bar);
+//      Button lockBar = findViewById(R.id.lock_bar);
+      View lockBar = findViewById(R.id.lock_bar);
       lockBar.setOnClickListener(view -> {
         if (running) {
-          String percentageClicked = String.valueOf(percentage);
+          String percentageClicked = String.valueOf((int) percentage);
           timer.cancel();
           Toast.makeText(this, percentageClicked, Toast.LENGTH_SHORT).show();
           running = false;

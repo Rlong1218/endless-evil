@@ -21,7 +21,7 @@ public interface WeatherService {
   }
 
   @GET("/data/2.5/weather")
-  Single<WeatherData> get(@Query("id") int cityId, @Query("APPID") String apiKey);
+  Single<WeatherData> get(@Query("q") String city, @Query("APPID") String apiKey);
 
   class InstanceHolder {
 
@@ -71,6 +71,13 @@ public interface WeatherService {
 
     public void setIcon(String icon) {
       this.icon = icon;
+    }
+
+    public boolean isDaytime () {
+      return icon.charAt(icon.length() - 1) == 'd';
+    }
+    public boolean isSnowing() {
+      return icon.substring(0, 2).equals("13");
     }
 
   }

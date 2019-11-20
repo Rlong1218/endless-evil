@@ -11,8 +11,8 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import com.rlong1218.endlessevil.entity.Character;
 import com.rlong1218.endlessevil.entity.Game;
-import com.rlong1218.endlessevil.model.Dao.CharacterDao;
-import com.rlong1218.endlessevil.model.Dao.GameDao;
+import com.rlong1218.endlessevil.model.dao.CharacterDao;
+import com.rlong1218.endlessevil.model.dao.GameDao;
 import java.util.Date;
 
 @Database(

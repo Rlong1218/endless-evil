@@ -1,4 +1,4 @@
-package com.rlong1218.endlessevil.model.Dao;
+package com.rlong1218.endlessevil.model.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

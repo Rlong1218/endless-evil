@@ -30,10 +30,11 @@ public class CharacterInfoFragment extends DialogFragment {
 
   private View view;
   private CharacterInfoViewModel viewModel;
-  private ImageView characterSprite;
+  private ImageView sprite;
   private TextView totalKills;
   private TextView gamesPlayed;
   private TextView currentUpgrades;
+  private long id;
   //TODO add fields for view objects in layout
 
   public static CharacterInfoFragment newInstance(long id) {
@@ -49,13 +50,13 @@ public class CharacterInfoFragment extends DialogFragment {
   public AlertDialog onCreateDialog(@Nullable Bundle savedInstanceState) {
     view = getActivity().getLayoutInflater().inflate(R.layout.fragment_character_info, null);
     // TODO get references to view objects in layout
-    characterSprite = view.findViewById(R.id.sprite);
+    sprite = view.findViewById(R.id.sprite);
     return new AlertDialog.Builder(getContext())
         .setTitle("Character Details")
         .setView(view)
         .setNegativeButton("Cancel", (dialog, button) -> {})
         .setPositiveButton("Select", (dialog, button) -> {
-          // TODO send selected character back to activity
+          ((CharacterSelector)getActivity()).select(id);
         })
         .create();
 
@@ -72,16 +73,21 @@ public class CharacterInfoFragment extends DialogFragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     viewModel = ViewModelProviders.of(this).get(CharacterInfoViewModel.class);
-    viewModel.setId(getArguments().getLong(ID_KEY));
-    viewModel.getCharacter().observe(this, (character) -> {
-      //TODO populate fields with character info
-      String image = character.getImage();
-      if (image != null && !image.isEmpty()) {
-        Resources res = getResources();
-        String pkg = getActivity().getPackageName();
-        int id = res.getIdentifier(image, "drawable", pkg);
-        characterSprite.setImageResource(id);
+        viewModel.setId(getArguments().getLong(ID_KEY));
+        viewModel.getCharacter().observe(this, (character) -> {
+          //TODO populate fields with character info
+          this.id = character.getId();
+          String image = character.getImage();
+          if (image != null && !image.isEmpty()) {
+            Resources res = getResources();
+            String pkg = getActivity().getPackageName();
+            int id = res.getIdentifier(image, "drawable", pkg);
+            sprite.setImageResource(id);
       }
     });
+  }
+
+  public interface CharacterSelector{
+    void select (long id);
   }
 }
