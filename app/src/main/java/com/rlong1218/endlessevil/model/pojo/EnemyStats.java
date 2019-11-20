@@ -20,4 +20,5 @@ public class EnemyStats {
     }
     return new int[] {monsterHealth, monsterDamage};
   }
+
 }

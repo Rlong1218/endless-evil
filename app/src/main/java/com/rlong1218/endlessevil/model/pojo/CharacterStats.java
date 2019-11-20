@@ -19,5 +19,4 @@ public class CharacterStats {
     int damage = 75 + 15 * damageUpgrades;
     return new int[] {health, damage};
   }
-
 }

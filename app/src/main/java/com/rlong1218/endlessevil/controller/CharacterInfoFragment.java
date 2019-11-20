@@ -24,10 +24,8 @@ import com.rlong1218.endlessevil.viewmodel.CharacterInfoViewModel;
  */
 public class CharacterInfoFragment extends DialogFragment {
 
-  // TODO: Rename parameter arguments, choose names that match
   // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
   private static final String ID_KEY = "id";
-
   private View view;
   private CharacterInfoViewModel viewModel;
   private ImageView sprite;
@@ -35,7 +33,6 @@ public class CharacterInfoFragment extends DialogFragment {
   private TextView gamesPlayed;
   private TextView currentUpgrades;
   private long id;
-  //TODO add fields for view objects in layout
 
   public static CharacterInfoFragment newInstance(long id) {
     CharacterInfoFragment fragment = new CharacterInfoFragment();
