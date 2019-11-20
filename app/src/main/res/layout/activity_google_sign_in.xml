@@ -5,7 +5,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".controller.GoogleSignInActivity">
+  tools:context=".controller.GoogleSignInActivity"
+  android:background="@color/colorPrimary">
 
   <androidx.appcompat.widget.AppCompatImageView
     android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     android:prompt="@string/city_prompt"
-    android:entries="@array/city_names"/>
+    android:entries="@array/city_names"
+    android:background="#FFF"/>
 
   <com.google.android.gms.common.SignInButton
     android:id="@+id/sign_in_button"
